@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <Counter />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { defineAsyncComponent } from 'vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Counter: defineAsyncComponent( () => import('@/components/Counter.vue'))
   }
 }
 </script>
