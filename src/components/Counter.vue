@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>Direct Access: {{ $store.state.count }}</h3>
+        <h3>Direct Access: {{ $store.state.counter.count }}</h3>
         <h3>Computed: {{ countComputed }}</h3>
         <h3>mapState: {{ count }}</h3>
         <h3>lastMutation: {{ lastMutation }}</h3><br>
@@ -21,9 +21,9 @@ export default {
     // computed: mapState['count']
     computed: {
         countComputed(){
-            return this.$store.state.count
+            return this.$store.state.counter.count
         },
-        ...mapState(['count','lastMutation', 'isLoading'])
+        ...mapState('counter', ['count','lastMutation', 'isLoading'])
         // ...mapState({
         //     count: state => state.count,
         //     lastMutation: state => state.lastMutation
@@ -31,10 +31,10 @@ export default {
     },
     methods: {
         increment(){
-            return this.$store.commit('increment')
+            return this.$store.commit('counter/increment')
         },
         incrementBy(){
-            return this.$store.commit('incrementBy', 5)
+            return this.$store.commit('counter/incrementBy', 5)
         },
         // incrementRandom(){
         //     return this.$store.dispatch('incrementRandom')
@@ -45,7 +45,7 @@ export default {
         // setLoading(){
         //     return this.$store.commit('setLoading')
         // },
-        ...mapActions(['incrementRandom'])
+        ...mapActions('counter', ['incrementRandom'])
     }
 }
 </script>
