@@ -5,7 +5,8 @@ export default createStore({
     state: {
         count: 1,
         lastMutation: 'none',
-        isLoading: false
+        isLoading: false,
+        lastRandomInt: null
     },
     mutations:{
         increment( state ){
@@ -14,7 +15,8 @@ export default createStore({
         },
         incrementBy( state, value ){
             state.count += value
-            state.lastMutation = 'incrementBy'
+            state.lastMutation = 'incrementBy ' + value
+            state.lastRandomInt = value
         }
     },
     actions: {
