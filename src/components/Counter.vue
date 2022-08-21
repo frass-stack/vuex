@@ -3,7 +3,10 @@
         <h3>Direct Access: {{ $store.state.count }}</h3>
         <h3>Computed: {{ countComputed }}</h3>
         <h3>mapState: {{ count }}</h3>
-        <h3>lastMutation: {{ lastMutation }}</h3>
+        <h3>lastMutation: {{ lastMutation }}</h3><br>
+        <button @click="increment" >+1</button>
+        <button @click="incrementBy" >+5</button>
+        <button>Random</button>
     </div>
 </template>
 
@@ -21,6 +24,14 @@ export default {
         //     count: state => state.count,
         //     lastMutation: state => state.lastMutation
         // })
+    },
+    methods: {
+        increment(){
+            return this.$store.commit('increment')
+        },
+        incrementBy(){
+            return this.$store.commit('incrementBy', 5)
+        }
     }
 }
 </script>
