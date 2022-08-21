@@ -6,7 +6,7 @@
         <h3>lastMutation: {{ lastMutation }}</h3><br>
         <button @click="increment" >+1</button>
         <button @click="incrementBy" >+5</button>
-        <button>Random</button>
+        <button @click="incrementRandom" >Random</button>
     </div>
 </template>
 
@@ -31,6 +31,9 @@ export default {
         },
         incrementBy(){
             return this.$store.commit('incrementBy', 5)
+        },
+        incrementRandom(){
+            return this.$store.dispatch('incrementRandom')
         }
     }
 }
