@@ -6,8 +6,11 @@
         <h3>lastMutation: {{ lastMutation }}</h3><br>
         <button @click="increment" >+1</button>
         <button @click="incrementBy" >+5</button>
-        <button @click="incrementRandom" >Random</button>
+        <button @click="incrementRandom" :disabled="isLoading" >
+            Random
+        </button>
         <!-- <button @click="randomInt" >Random</button> -->
+        <h3>Direct Getters: {{ $store.getters.squareCount }}</h3>
     </div>
 </template>
 
@@ -20,7 +23,7 @@ export default {
         countComputed(){
             return this.$store.state.count
         },
-        ...mapState(['count','lastMutation'])
+        ...mapState(['count','lastMutation', 'isLoading'])
         // ...mapState({
         //     count: state => state.count,
         //     lastMutation: state => state.lastMutation
@@ -39,6 +42,9 @@ export default {
         // ...mapActions({
         //     randomInt: 'incrementRandom'
         // })
+        // setLoading(){
+        //     return this.$store.commit('setLoading')
+        // },
         ...mapActions(['incrementRandom'])
     }
 }

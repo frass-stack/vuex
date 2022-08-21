@@ -8,7 +8,7 @@ const getRandomInt = () => {
         //Emito el resolve con una demora
         setTimeout( () => {
             resolve(randomInt)
-        }, 1000)
+        }, 2000)
     })
 }
 
