@@ -10,7 +10,7 @@
             Random
         </button>
         <!-- <button @click="randomInt" >Random</button> -->
-        <h3>Direct Getters: {{ $store.getters.squareCount }}</h3>
+        <h3>Direct Getters: {{ $store.getters['counter/squareCount'] }}</h3>
     </div>
 </template>
 
